@@ -25,7 +25,8 @@
     "lint": "eslint src/** webpack/** test/**",
     "lint:fix": "npm run lint -- --fix",
     "serve:dist": "http-server ./dist -p 3040",
-    "start": "npm run compile && npm run serve:dist"
+    "start": "concurrently \"npm run watch\" \"npm run serve:dist\"",
+    "watch": "watch \"npm run compile\" src"
   },
   "pre-commit": {
     "run": [
@@ -57,7 +58,6 @@
     "http-server": "^0.11.1",
     "identity-obj-proxy": "^3.0.0",
     "imports-loader": "^0.7.0",
-    "npm-watch": "^0.3.0",
     "postcss": "^6.0.17",
     "postcss-cssnext": "^3.1.0",
     "postcss-import": "^11.0.0",
@@ -67,6 +67,7 @@
     "rimraf": "^2.5.0",
     "style-loader": "^0.18.2",
     "url-loader": "^0.6.2",
+    "watch": "^1.0.2",
     "webpack": "^3.3.0",
     "webpack-dev-server": "^2.4.2"
   }

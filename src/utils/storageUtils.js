@@ -1,5 +1,3 @@
-import urlB64ToUint8Array from 'urlb64touint8array';
-
 export const setAuthToken = (token) => {
   sessionStorage.setItem('token', token);
 };
