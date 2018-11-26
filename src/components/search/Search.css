@@ -72,3 +72,7 @@ ul li.select {
     width: 30vw;
   }
 }
+
+select#search-options {
+  display: block;
+}
