@@ -1,6 +1,7 @@
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const htmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   output: {
@@ -47,10 +48,20 @@ module.exports = {
     }]
   },
   plugins: [
-    new ExtractTextPlugin('[name].css'),
+    new ExtractTextPlugin('./style/[name].css'),
     new htmlWebpackPlugin({
       inject: true,
       template: path.resolve(__dirname, '../src', 'index.html')
-    })
+    }),
+    new CopyWebpackPlugin([
+      {
+        from: path.resolve(__dirname, '../', 'src/images'),
+        to: path.resolve(__dirname, '../', 'dist/images')
+      },
+      {
+        from: path.resolve(__dirname, '../', 'src/fonts'),
+        to: path.resolve(__dirname, '../', 'dist/fonts')
+      }]
+    ),
   ]
 };

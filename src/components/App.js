@@ -1,4 +1,6 @@
 import '../helpers';
+import '../style/fonts.css';
+import '../style/materialize.min.css';
 import './App.css';
 import appTemplate from './app.tpl.html';
 import Router from './Router';

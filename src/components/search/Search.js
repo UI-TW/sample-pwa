@@ -28,10 +28,6 @@ class Search {
   }
 
   attachEventListeners() {
-    $('.nav-wrapper .dropdown-button').dropdown({
-      inDuration: 300,
-      outDuration: 225
-    });
     const searchInput = document.querySelector('.search-wrapper input');
     const searchOptionLink = document.querySelector('#search-options');
     searchInput.addEventListener('keyup', (e) => {
@@ -41,13 +37,11 @@ class Search {
       }
     });
 
-    searchOptionLink.addEventListener('click', (e) => {
-      if (e.target.nodeName === 'A') {
-        state.media = e.target.textContent.trim();
-        if (state.query.length > 0) {
-          this.getSearchResult();
-        }
-        this.render();
+    searchOptionLink.addEventListener('change', (e) => {
+      const el = e.target;
+      state.media = el.options[el.selectedIndex].value;
+      if (state.query.length > 0) {
+        this.getSearchResult();
       }
     });
   }
@@ -73,7 +67,7 @@ class Search {
     this.attachEventListeners();
   }
 
-  update = ({ keyCode, target: { value: query } }) => _ => {
+  update = ({keyCode, target: {value: query}}) => _ => {
     state.query = query;
     if (keyCode === 13) {
       this.getSearchResult();
