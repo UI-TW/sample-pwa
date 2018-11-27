@@ -21,12 +21,13 @@
     "clean": "rimraf dist/*",
     "dev": "webpack-dev-server --progress --color --config ./webpack/webpack.config.dev.js",
     "build": "webpack --config ./webpack/webpack.config.prod.js --progress --colors --define process.env.NODE_ENV='\"production\"'",
-    "compile": "npm run clean && npm run build",
+    "compile": "npm run clean && npm run build && npm run pwa:setup",
     "lint": "eslint src/** webpack/** test/**",
     "lint:fix": "npm run lint -- --fix",
     "serve:dist": "http-server ./dist -p 3040",
     "start": "npm-run-all --parallel watch serve:dist",
-    "watch": "watch \"npm run compile\" src"
+    "watch": "watch \"npm run compile\" src",
+    "pwa:setup": "workbox generateSW workbox-config.js"
   },
   "pre-commit": {
     "run": [
@@ -70,6 +71,7 @@
     "url-loader": "^0.6.2",
     "watch": "^1.0.2",
     "webpack": "^3.3.0",
-    "webpack-dev-server": "^2.4.2"
+    "webpack-dev-server": "^2.4.2",
+    "workbox-cli": "^3.6.3"
   }
 }
