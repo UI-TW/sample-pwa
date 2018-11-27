@@ -71,7 +71,7 @@
     "url-loader": "^0.6.2",
     "watch": "^1.0.2",
     "webpack": "^3.3.0",
-    "webpack-dev-server": "^2.4.2",
+    "webpack-dev-server": "^3.1.10",
     "workbox-cli": "^3.6.3"
   }
 }
