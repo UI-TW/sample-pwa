@@ -34,7 +34,6 @@ to a PWA compliant one by following the below steps.
 
 - Caching
 
-  - Caching assets from cdn
   - Caching api responses
   
 ## Note
